@@ -1,0 +1,22 @@
+[project]
+name = "ncds"
+version = "0.0.1"
+requires-python= ">=3.10"
+dependencies = [
+    "ml_collections",
+    "absl-py",
+    "torch"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit",
+    "pytest",
+    "ruff",
+    "black",
+    "isort",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

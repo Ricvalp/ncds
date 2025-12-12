@@ -1,0 +1,10 @@
+ml_collections
+absl-py
+torch
+
+[dev]
+pre-commit
+pytest
+ruff
+black
+isort
