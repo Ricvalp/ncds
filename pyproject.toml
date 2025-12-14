@@ -9,6 +9,8 @@ dependencies = [
     "scipy",
     "matplotlib",
     "jax",
+    "flax",
+    "optax",
 ]
 
 [project.optional-dependencies]

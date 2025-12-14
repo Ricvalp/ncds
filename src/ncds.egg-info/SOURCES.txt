@@ -8,4 +8,8 @@ src/ncds.egg-info/top_level.txt
 src/ncds/cli/train.py
 src/ncds/data/lasa.py
 src/ncds/models/ncds.py
+src/ncds/models/utils.py
 src/ncds/training/train.py
+tests/test_loss.py
+tests/test_model.py
+tests/test_smoke_training.py
