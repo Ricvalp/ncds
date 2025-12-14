@@ -10,7 +10,7 @@ def get_config() -> ConfigDict:
     cfg.g_net = ConfigDict(
         dict(
             num_layers=3,
-            hidden_dim=128,
+            hidden_dim=64,
             output_dim=2,
         )
     )
