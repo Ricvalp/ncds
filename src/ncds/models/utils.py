@@ -41,8 +41,8 @@ def plot_vector_field(
     plt.grid()
     if save_path:
         plt.savefig(save_path)
-
-
+    else:
+        plt.show()
 def plot_solution_trajectories(
     trajectories: np.ndarray,
     title: str = "Solution Trajectories",
