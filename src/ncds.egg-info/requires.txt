@@ -3,6 +3,7 @@ ml_collections
 absl-py
 scipy
 matplotlib
+jax
 
 [dev]
 pre-commit

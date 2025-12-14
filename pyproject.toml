@@ -7,7 +7,12 @@ dependencies = [
     "ml_collections",
     "absl-py",
     "scipy",
-    "matplotlib"
+    "matplotlib",
+    "jax",
+    "flax",
+    "optax",
+    "torch",
+    "tqdm",
 ]
 
 [project.optional-dependencies]

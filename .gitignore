@@ -1,6 +1,5 @@
 /figures
 *.egg-info/
-*.lock
 __pycache__/
 .vscode/
 .venv/

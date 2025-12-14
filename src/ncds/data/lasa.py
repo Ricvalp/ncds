@@ -1,7 +1,8 @@
-from pathlib import Path
 from typing import List
+
 import numpy as np
 import scipy.io
+
 
 def load_lasa_shape(path: str, normalize: bool = False) -> list:
     """
@@ -9,7 +10,7 @@ def load_lasa_shape(path: str, normalize: bool = False) -> list:
     Each trajectory has shape (T, 2).
     """
     data = scipy.io.loadmat(path)
-    
+
     try:
         dt = float(data["dt"][0, 0])
     except Exception:
@@ -27,9 +28,9 @@ def load_lasa_shape(path: str, normalize: bool = False) -> list:
         pos = demo["pos"][0, 0]  # unwrap the nested cell to a (2, T) ndarray
         demos.append(pos.T)  # return as (T, 2)
     demos = np.stack(demos)
-    
+
     if normalize:
         std = np.std(demos)
         demos = demos / std
-        
-    return {'trajectories': demos, 'dt': dt}
+
+    return {"trajectories": demos, "dt": dt}
