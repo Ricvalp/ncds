@@ -66,3 +66,5 @@ def plot_solution_trajectories(
     plt.grid()
     if save_path:
         plt.savefig(save_path)
+    else:
+        plt.show()
