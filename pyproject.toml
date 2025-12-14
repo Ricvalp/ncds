@@ -12,6 +12,7 @@ dependencies = [
     "flax",
     "optax",
     "torch",
+    "tqdm",
 ]
 
 [project.optional-dependencies]
