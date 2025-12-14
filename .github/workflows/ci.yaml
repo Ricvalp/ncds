@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches: ['main', 'feature/*']
+  pull_request:
+    branches: ['main']
+  
+
+jobs:
+  
+  lint:
+    runs-on: ubunto-latest
+    steps:
+      uses: actions/checkout@v5
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+      run: pip install uv
+      run: uv pip install -e ".[dev]"
+      run: |
+        uv ruff check .
+        uv black --check .
+        uv isort --check-only .
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      uses: actions/checkout@v5
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+      run: pip install uv
+      run: uv pip install -e ".[dev]"
+      run: uv pytest -m "not slow" -q
+
+  
+  smoke:
+    runs-on: ubunu-latest
+    steps:
+      uses: actions/checkout@v5
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+      run: pip install uv
+      run: uv pip install -e . ".[dev]"
+      run: uv python ncds.cli.train --config=configs/ci_train.py

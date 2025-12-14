@@ -2,9 +2,11 @@ Metadata-Version: 2.4
 Name: ncds
 Version: 0.0.1
 Requires-Python: >=3.10
+Requires-Dist: numpy
 Requires-Dist: ml_collections
 Requires-Dist: absl-py
-Requires-Dist: torch
+Requires-Dist: scipy
+Requires-Dist: matplotlib
 Provides-Extra: dev
 Requires-Dist: pre-commit; extra == "dev"
 Requires-Dist: pytest; extra == "dev"

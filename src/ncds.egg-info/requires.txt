@@ -1,6 +1,8 @@
+numpy
 ml_collections
 absl-py
-torch
+scipy
+matplotlib
 
 [dev]
 pre-commit
