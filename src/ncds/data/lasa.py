@@ -33,36 +33,3 @@ def load_lasa_shape(path: str, normalize: bool = False) -> list:
         demos = demos / std
         
     return {'trajectories': demos, 'dt': dt}
-
-
-if __name__ == "__main__":
-    import matplotlib.pyplot as plt
-    # Resolve paths relative to repository root so the script can be run from anywhere.
-    repo_root = Path(__file__).resolve().parents[3]
-    dataset_dir = repo_root / "dataset" / "lasahandwritingdataset" / "DataSet"
-    figures_dir = repo_root / "figures"
-    figures_dir.mkdir(parents=True, exist_ok=True)
-
-    shapes_to_plot = ["CShape", "Sine", "WShape"]
-
-    for shape in shapes_to_plot:
-        mat_path = dataset_dir / f"{shape}.mat"
-        demos_dict = load_lasa_shape(str(mat_path), normalize=True)
-        demos = demos_dict['trajectories']
-        dt = demos_dict['dt']
-        
-        fig, ax = plt.subplots()
-        for demo in demos:
-            ax.plot(demo[:, 0], demo[:, 1], linewidth=1.5)
-
-        ax.set_title(f"{shape} demos")
-        ax.set_aspect("equal", "box")
-        ax.invert_yaxis()
-        ax.set_xlabel("x")
-        ax.set_ylabel("y")
-        fig.tight_layout()
-
-        output_path = figures_dir / f"lasa_{shape.lower()}.png"
-        fig.savefig(output_path, dpi=300)
-        plt.close(fig)
-    
