@@ -2,13 +2,13 @@ import jax
 import jax.numpy as jnp
 
 from ncds.models.ncds import (
-    NCDSConfig,
-    FNetConfig,
-    JNetConfig,
-    GNetConfig,
-    OptimConfig,
-    LossWeights,
     NCDS,
+    FNetConfig,
+    GNetConfig,
+    JNetConfig,
+    LossWeights,
+    NCDSConfig,
+    OptimConfig,
 )
 
 
@@ -32,12 +32,12 @@ def test_loss():
         loss_weights=LossWeights(reconstruction=1.0),
         seed=42,
     )
-    
+
     ncds = NCDS(ncds_config)
-    
+
     key = jax.random.PRNGKey(0)
     key, data_subkey = jax.random.split(key)
-    
+
     dummy_batch = jax.random.normal(data_subkey, (100, 2))
     ncds.init_model(dummy_batch)
     dt = 0.1

@@ -32,16 +32,16 @@ def plot_vector_field(
     plt.quiver(X, Y, U, V)
     if training_traj is not None:
         for traj in training_traj:
-            plt.plot(traj[:, 0], traj[:, 1], 'r-', alpha=0.5)
+            plt.plot(traj[:, 0], traj[:, 1], "r-", alpha=0.5)
     plt.xlim(xlim)
     plt.ylim(ylim)
-    plt.xlabel('X-axis')
-    plt.ylabel('Y-axis')
-    plt.title('2D Vector Field')
+    plt.xlabel("X-axis")
+    plt.ylabel("Y-axis")
+    plt.title("2D Vector Field")
     plt.grid()
     if save_path:
         plt.savefig(save_path)
-        
+
 
 def plot_solution_trajectories(
     trajectories: np.ndarray,
@@ -60,9 +60,9 @@ def plot_solution_trajectories(
     for traj in trajectories:
         plt.plot(traj[:, 0], traj[:, 1], linewidth=1.5)
     plt.title(title)
-    plt.xlabel('X-axis')
-    plt.ylabel('Y-axis')
-    plt.axis('equal')
+    plt.xlabel("X-axis")
+    plt.ylabel("Y-axis")
+    plt.axis("equal")
     plt.grid()
     if save_path:
         plt.savefig(save_path)

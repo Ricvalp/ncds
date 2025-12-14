@@ -1,12 +1,12 @@
 function demo_Plot_models
 % This is a matlab function illustrating 30 human handwriting motions
 % recorded from Tablet-PC. These datas can be found in the folder
-% 'DataSet'. 
+% 'DataSet'.
 %
 % Please acknowledge the authors in any academic publications
 % that have made use of this library by citing the following paper:
 %
-%  S. M. Khansari-Zadeh and A. Billard, "Learning Stable Non-Linear Dynamical 
+%  S. M. Khansari-Zadeh and A. Billard, "Learning Stable Non-Linear Dynamical
 %  Systems with Gaussian Mixture Models", IEEE Transaction on Robotics, 2011.
 %
 % To get latest upadate of the software please visit
