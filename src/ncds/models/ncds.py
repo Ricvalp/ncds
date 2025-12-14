@@ -226,48 +226,6 @@ class F_net(nn.Module):
         
         return acc / self.K
 
-
-
-
-
-
-
-if __name__ == "__main__":
-    key = jax.random.PRNGKey(42)
-    key, init_subkey = jax.random.split(key)
-    
-    g_net_config = GNetConfig(
-        num_layers=3,
-        hidden_dim=128,
-        output_dim=2,
-    )
-    
-    j_net_config = JNetConfig(
-        g_net_config=g_net_config,
-        epsilon_init=1e-6,
-        train_epsilon=True,
-    )
-    
-    f_net_config = FNetConfig(
-        j_net_config=j_net_config,
-        x0_init=jnp.zeros((2,)),
-        train_x0=True,
-        K=20,
-    )
-    
-    ncds_config = NCDSConfig(
-        f_net_config=f_net_config,
-        optimizer=OptimConfig(learning_rate=1e-3),
-        loss_weights=LossWeights(reconstruction=1.0),
-        seed=42,
-    )
-    
-    dummy_data_loader = [jax.random.normal(key, (16, 100, 2)) for _ in range(1000)]
-    
-    ncds = NCDS(ncds_config)
-    ncds.train_model(dummy_data_loader, dt=0.01, num_epochs=5)
-    
-    assert True
     
     
     
